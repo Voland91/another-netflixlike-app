@@ -1,12 +1,26 @@
-import React from 'react';
-import GlobalStyle from '../../theme/GlobalStyle'
+import React, { useEffect } from 'react';
+import {connect} from 'react-redux';
+import GlobalStyle from '../../theme/GlobalStyle';
+import { fetchMovies } from '../../data/actions/moviesAction';
 
-const Root = () => (
+const Root = ({ movies, fetchMovies }) => {
+  useEffect(() => {
+    fetchMovies();
+  }, [fetchMovies]);
+
+  return ( 
   <>
-  <GlobalStyle/>
-  asd
+    <GlobalStyle/>
+{movies.map(element => (<div>{element['im:name'].label}</div>)
+)}
   </>
+  )};
 
-);
-
-export default Root;
+  export default connect(
+    (state) => {
+      return {
+        movies: state.movies.movies
+      };
+    },
+    { fetchMovies },
+  )(Root);
