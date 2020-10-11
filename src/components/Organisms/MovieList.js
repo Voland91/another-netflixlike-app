@@ -8,7 +8,7 @@ const StyledCatalogWrapper = styled.div`
 display: flex;
 flex-wrap: wrap;
 justify-content: space-around;
-margin: 80px;
+margin: 80px 50px;
 `;
 
 const MoviesList = ({ movies }) => (

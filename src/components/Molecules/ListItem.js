@@ -12,19 +12,35 @@ flex-direction: column;
 justify-content: space-between;
 width: 17%;
 margin-top: 60px;
-height: 370px;
+height: 390px;
 `;
+
+const StyledInfoWrapper = styled.div`
+display: flex;
+flex-direction: column;
+height: 40%;
+justify-content: space-between;
+padding: 15px 5px;
+cursor: pointer;
+
+&:hover {
+background-color: ${({ theme }) => theme.gray}
+}
+`
 
 const ListItem = ({ name, image, category, description }) => {
 
-const shortDescription = description.substring(0, 50);
+const shortDescription = description.substring(0, 45);
+const shortTitle = name.substring(0, 17);
 
 return (
   <StyledItemWrapper>
     <Image src={image}/>
-    <Title>{name}</Title>
-    <Description>{shortDescription}...</Description>
+    <StyledInfoWrapper>
+      <Title>{shortTitle.length < 17 ? shortTitle : `${shortTitle}...`}</Title>
+      <Description>{shortDescription.length < 45 ? shortDescription : `${shortDescription}...`}</Description>
       <Description category>{category}</Description>
+    </StyledInfoWrapper>
   </StyledItemWrapper>
 );}
 

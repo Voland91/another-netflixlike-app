@@ -2,6 +2,7 @@
 export const theme = {
     black: '#141414',
     white: '#fff',
+    gray: '#252525',
     description: '#a1a19b',
     thin: 100,
     regular: 400,
