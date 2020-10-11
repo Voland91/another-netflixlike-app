@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import {connect} from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import PropTypes from 'prop-types';
 import GlobalStyle from '../../theme/GlobalStyle';
 import { fetchMovies } from '../../data/actions/moviesAction';
 import { theme } from '../../theme/mainTheme';
 
 import Description from '../../components/Atoms/Description'
 
-const Root = ({ movies, fetchMovies }) => {
+const Root = ({ movies, fetchList }) => {
   useEffect(() => {
-    fetchMovies();
-  }, [fetchMovies]);
+    fetchList();
+  }, [fetchList]);
 
   return ( 
   <>
@@ -22,11 +23,17 @@ const Root = ({ movies, fetchMovies }) => {
   </>
   )};
 
+  Root.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.shape).isRequired,
+    fetchList: PropTypes.func.isRequired,
+  };
+  
+  
   export default connect(
     (state) => {
       return {
         movies: state.movies.movies
       };
     },
-    { fetchMovies },
+    { fetchList: fetchMovies },
   )(Root);
