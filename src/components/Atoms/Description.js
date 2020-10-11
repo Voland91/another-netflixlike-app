@@ -1,9 +1,22 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const MovieDescription = styled.p`
+const Description = styled.p`
   color: ${({ theme }) => theme.description};
-  font-size: 14px;
+  font-size: 12px;
   font-weight: ${({ theme }) => theme.thin};
+
+  ${({ category }) =>
+    category &&
+    css`
+      font-weight: ${({ theme }) => theme.bold};
+      font-size: 10px;
+    `};
+
+    ${({ duration }) =>
+    duration &&
+    css`
+      font-size: 10px;
+    `};
 `;
 
-export default MovieDescription;
+export default Description;
