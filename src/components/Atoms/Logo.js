@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 const Image = styled.img`
   cursor: pointer;
-  border-radius: 5px;
-  width: 100%;
+  width: 150px;
+  margin-top: 30px;
+  margin-left: 20px;
 `;
 
 export default Image;
