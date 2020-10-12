@@ -15,6 +15,7 @@ padding: 30px 20px;
 height: 100%;
 width: 100%;
 max-width: 235px;
+transition: .5s;
 &:hover {
 background-color: ${({ theme }) => theme.gray};
 padding: 10px;
@@ -25,7 +26,6 @@ const StyledInfoWrapper = styled.div`
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-height: 100%;
 min-height: 90px;
 padding-top: 15px;
 cursor: pointer;

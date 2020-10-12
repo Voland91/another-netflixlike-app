@@ -6,6 +6,7 @@ width: 30px;
 height: 30px;
 right: 10px;
 top: 10px;
+z-index: 999;
   color: ${({ theme }) => theme.gray};
   font-size: 13px;
   background-color: rgba(255, 255, 255, 0.5);
