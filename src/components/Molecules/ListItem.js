@@ -37,7 +37,7 @@ const shortDescription = description.substring(0, 45);
 const shortTitle = name.substring(0, 19);
 
 return (
-  <Link to={`${id}/movie-details`}>
+  <Link to={`${id}/movie-details`} style={{ textDecoration: 'none' }}>
   <StyledItemWrapper onClick={()=>handleClick(id)}>
     <Image src={image}/>
     <StyledInfoWrapper>

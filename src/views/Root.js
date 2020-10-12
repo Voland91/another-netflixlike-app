@@ -51,7 +51,7 @@ const Root = ({ movies, fetchList }) => {
         </StyledMainWrapper>
         <Switch>
           <Route path={`/${itemId}/movie-details`}>
-            <Modal/>
+            <Modal movies={movies} itemId={itemId} />
           </Route>
         </Switch>
         </Router>

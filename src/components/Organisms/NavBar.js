@@ -9,13 +9,14 @@ import logo from '../../asssets/logo.svg'
 const StyledNavWrapper = styled.div`
 display: flex;
 justify-content: space-between;
-margin-bottom: 20px;
+align-items: center;
+margin: 20px 0;
 `;
 
 const NavBar = ({searchFn, value}) => (
     <StyledNavWrapper>
-    <Logo src={logo}/>
-    <TextInput type="text" placeholder="search..." onChange={searchFn} value={value}/>
+      <Logo src={logo}/>
+      <TextInput type="text" placeholder="search..." onChange={searchFn} value={value}/>
     </StyledNavWrapper>
   );
 

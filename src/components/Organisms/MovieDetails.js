@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 
 
 import Button from '../Atoms/Button';
+import Description from '../Atoms/Description'
+import Video from '../Atoms/Video'
+import Title from '../Atoms/Title';
 
 
 const StyledCartWrapper = styled.aside`
@@ -21,35 +24,51 @@ const StyledCartWrapper = styled.aside`
 `;
 
 const StyledContentWrapper = styled.div`
-  background-color: ${({ theme }) => theme.white};
-  width: 600px;
-  max-height: 700px;
+  background-color: ${({ theme }) => theme.black};
+  width: 90%;
+  max-width: 1100px;
+  max-height: 1000px;
   box-shadow: 0px 0px 20px -5px rgba(11, 16, 43, 1);
   display: flex;
   flex-direction: column;
   overflow-x: auto;
 `;
 
-const StyledNavWrapper = styled.div`
-  display: flex;
-  align-self: flex-end;
+const StyledCloseWrapper = styled.div`
+ position: relative;
 `;
 
-const MovieDetails = () => {
+const StyledInfoWrapper = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: 100%;
+padding: 30px 15px;
+`
+
+const MovieDetails = ({movies, itemId}) => {
   const history = useHistory();
   const handleClose = (e) => {
     e.stopPropagation();
     history.goBack();
   };
 
+  const movie = movies.find(item => item.id.attributes["im:id"] === itemId);
+
   return (
     <StyledCartWrapper onClick={handleClose}>
       <StyledContentWrapper onClick={(e) => e.stopPropagation()}>
-        <StyledNavWrapper>
+        <StyledCloseWrapper>
           <Button cartSmall close onClick={handleClose}>
-            X
+          &#10006;
           </Button>
-        </StyledNavWrapper>
+        </StyledCloseWrapper>
+        <Video autoPlay controls width='500'><source src={movie.link[1].attributes.href}/></Video>
+    <StyledInfoWrapper>
+      <Title>{movie["im:name"].label}</Title>
+      <Description video>{movie.summary.label}</Description>
+      <Description video>Cast: {movie["im:artist"].label}</Description>
+    </StyledInfoWrapper>
       </StyledContentWrapper>
     </StyledCartWrapper>
   );

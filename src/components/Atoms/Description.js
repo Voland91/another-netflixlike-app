@@ -17,6 +17,12 @@ const Description = styled.p`
     css`
       font-size: 10px;
     `};
+
+    ${({ video }) =>
+    video &&
+    css`
+      margin-top: 20px;
+    `};
 `;
 
 export default Description;

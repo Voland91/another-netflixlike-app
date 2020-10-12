@@ -1,38 +1,21 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Button = styled.button`
-  color: ${({ theme }) => theme.black};
-  text-decoration: none;
+position: absolute;
+width: 30px;
+height: 30px;
+right: 10px;
+top: 10px;
+  color: ${({ theme }) => theme.gray};
   font-size: 13px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   border: none;
+  border-radius: 50%;
   cursor: pointer;
   &:hover {
-    color: ${({ theme }) => theme.blue};
+    color: ${({ theme }) => theme.black};
+    background-color: rgba(255, 255, 255, 1);
   }
-  ${({ cartSmall }) =>
-    cartSmall &&
-    css`
-      background-color: ${({ theme }) => theme.blue};
-      margin: 10px;
-      padding: 4px 10px;
-      color: ${({ theme }) => theme.white};
-      border: 2px solid ${({ theme }) => theme.blue}
-      transition: 0.2s;
-      border-radius: 5px;
-      &:hover {
-        background-color: transparent;
-        color: ${({ theme }) => theme.blue};
-      }
-    `};
-  ${({ close }) =>
-    close &&
-    css`
-      font-weight: ${({ theme }) => theme.bold};
-      width: 20px;
-      height: 20px;
-      padding: 0;
-    `};
 `;
 
 export default Button;
