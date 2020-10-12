@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "beea15d9a9cf72601cb3",
-    "url": "/another-netflixlike-app/static/js/main.4f18fb13.chunk.js"
+    "revision": "74e7a3afa988193a56f2",
+    "url": "/another-netflixlike-app/static/js/main.409b707d.chunk.js"
   },
   {
     "revision": "ca1f44ffcf4fad4c2f04",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/another-netflixlike-app/static/media/logo.659d7dab.svg"
   },
   {
-    "revision": "90ffe448f06b91e5de21d334c76880df",
+    "revision": "8d5ee5ffa69ef6b014e9f578dcd9685b",
     "url": "/another-netflixlike-app/index.html"
   }
 ];
