@@ -9,6 +9,7 @@ import logo from '../../asssets/logo.svg'
 const StyledNavWrapper = styled.div`
 display: flex;
 justify-content: space-between;
+margin-bottom: 20px;
 `;
 
 const NavBar = ({searchFn, value}) => (

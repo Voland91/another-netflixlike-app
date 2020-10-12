@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import Description from '../Atoms/Description'
 import Image from '../Atoms/Image'
@@ -30,13 +31,14 @@ padding-top: 15px;
 cursor: pointer;
 `
 
-const ListItem = ({ name, image, category, description }) => {
+const ListItem = ({ name, image, category, description, handleClick, id }) => {
 
 const shortDescription = description.substring(0, 45);
 const shortTitle = name.substring(0, 19);
 
 return (
-  <StyledItemWrapper>
+  <Link to={`${id}/movie-details`}>
+  <StyledItemWrapper onClick={()=>handleClick(id)}>
     <Image src={image}/>
     <StyledInfoWrapper>
       <Title>{shortTitle.length < 19 ? shortTitle : `${shortTitle}...`}</Title>
@@ -44,13 +46,16 @@ return (
       <Description category>{category}</Description>
     </StyledInfoWrapper>
   </StyledItemWrapper>
+  </Link>
 );}
 
 ListItem.propTypes = {
 name: PropTypes.string.isRequired,
 image: PropTypes.string.isRequired,
 category: PropTypes.string.isRequired,
-description: PropTypes.string.isRequired
+description: PropTypes.string.isRequired,
+id: PropTypes.string.isRequired,
+handleClick: PropTypes.func.isRequired,
 };
 
 export default ListItem;

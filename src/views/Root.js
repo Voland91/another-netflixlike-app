@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {connect} from 'react-redux';
 import styled, { ThemeProvider } from 'styled-components';
 import PropTypes from 'prop-types';
-import GlobalStyle from '../../theme/GlobalStyle';
-import { fetchMovies } from '../../data/actions/moviesAction';
-import { theme } from '../../theme/mainTheme';
+import GlobalStyle from '../theme/GlobalStyle';
+import { fetchMovies } from '../data/actions/moviesAction';
+import { theme } from '../theme/mainTheme';
 
-import MovieList from '../../components/Organisms/MovieList';
-import NavBar from '../../components/Organisms/NavBar';
+import Modal from './Modal';
+import MovieList from '../components/Organisms/MovieList';
+import NavBar from '../components/Organisms/NavBar';
 
 
 const StyledMainWrapper = styled.div`
@@ -19,6 +21,7 @@ margin: 0 auto;
 const Root = ({ movies, fetchList }) => {
   const [search, setSearch] = useState('');
   const [value, setValue] = useState('');
+  const [itemId, setItemId] = useState('');
 
   useEffect(() => {
     fetchList();
@@ -33,14 +36,25 @@ const Root = ({ movies, fetchList }) => {
     (movie) =>
       movie["im:name"].label.toLowerCase().indexOf(search.toLowerCase()) !== -1);
 
+  const handleClick = (id) => {
+    setItemId(id);
+  }
+
   return ( 
   <>
     <GlobalStyle/>
       <ThemeProvider theme={theme}>
+      <Router basename={process.env.PUBLIC_URL}>
         <StyledMainWrapper>
           <NavBar searchFn={searchingProduct} value={value}/>
-          <MovieList movies={filteredProducts}/>
+          <MovieList movies={filteredProducts} handleClick={handleClick}/>
         </StyledMainWrapper>
+        <Switch>
+          <Route path={`/${itemId}/movie-details`}>
+            <Modal/>
+          </Route>
+        </Switch>
+        </Router>
       </ThemeProvider>
   </>
   )};
