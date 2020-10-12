@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
@@ -74,5 +75,10 @@ const MovieDetails = ({movies, itemId}) => {
   );
 };
 
+
+MovieDetails.propTypes = {
+    movies: PropTypes.arrayOf(PropTypes.shape).isRequired,
+    itemId: PropTypes.string.isRequired,
+  };
 
 export default MovieDetails;
