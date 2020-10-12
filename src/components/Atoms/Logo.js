@@ -4,7 +4,7 @@ const Image = styled.img`
   cursor: pointer;
   width: 150px;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 25px;
 `;
 
 export default Image;
